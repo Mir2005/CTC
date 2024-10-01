@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Courses</title>
+    <link rel="stylesheet" href="Styles.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      *{
+        background-color: #ffffff;
+      }
+      .courses {
+        padding: 50px 20px;
+        text-align: center;
+      }
+
+      .courses h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        color: #031540; /* Dark blue color for the heading */
+      }
+
+      .course-card {
+        background-color: #fff; /* White background for course cards */
+        padding: 20px;
+        margin: 20px auto;
+        border-radius: 8px;
+        max-width: 600px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .course-card h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        color: #031540; /* Dark blue color for course titles */
+      }
+
+      .course-card p {
+        font-size: 16px;
+        margin-bottom: 20px;
+        color: #333; /* Dark gray color for course descriptions */
+      }
+
+      .course-card .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #031540; /* Dark blue background for buttons */
+        color: #fff; /* White color for button text */
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      .course-card .btn:hover {
+        background-color: #00aaff; /* Light blue color for button hover state */
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 768px) {
+        .courses h1 {
+          font-size: 28px;
+        }
+
+        .course-card h2 {
+          font-size: 20px;
+        }
+
+        .course-card p {
+          font-size: 14px;
+        }
+
+        .course-card .btn {
+          padding: 8px 16px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .courses h1 {
+          font-size: 24px;
+        }
+
+        .course-card h2 {
+          font-size: 18px;
+        }
+
+        .course-card p {
+          font-size: 12px;
+        }
+
+        .course-card .btn {
+          padding: 6px 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="#" class="logo">CTC</a>
+      <nav class="navbar">
+        <a href="./Home.html">Home</a>
+        <a href="./About.html">About Us</a>
+        <a href="#" class="active">Courses</a>
+        <a href="./Student.html">Student Zone</a>
+        <a href="./Contact.html">Contact Us</a>
+      </nav>
+    </header>
+    <main>
+      <section class="courses">
+        <h1>Our Courses</h1>
+        <div class="course-card">
+          <h2>Course Title 1</h2>
+          <p>Brief description of the course.</p>
+          <a href="#" class="btn">Learn More</a>
+        </div>
+        <div class="course-card">
+          <h2>Course Title 2</h2>
+          <p>Brief description of the course.</p>
+          <a href="#" class="btn">Learn More</a>
+        </div>
+        <!-- Add more course cards as needed -->
+      </section>
+    </main>
+    <footer>
+      <p>Made by Mir Md Minhaajuddin with the help of Microsoft Copilot</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Zone</title>
+    <link rel="stylesheet" href="Styles.css" />
+    <style>
+      * {
+        background-color: #ffffff;
+      }
+      .student-profiles {
+        padding: 50px 20px;
+        text-align: center;
+        color: #031540;
+      }
+
+      .student-profiles h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+
+      .profile-card {
+        background-color: #f4f4f4;
+        padding: 20px;
+        margin: 20px;
+        border-radius: 8px;
+        max-width: 300px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        display: inline-block;
+      }
+
+      .profile-card h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      .profile-card p {
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+
+      .login-form {
+        padding: 50px 20px;
+        text-align: center;
+        color: #031540;
+      }
+
+      .login-form h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+
+      .login-form .form-row {
+        margin-bottom: 20px;
+      }
+
+      .login-form label {
+        display: block;
+        font-size: 18px;
+        margin-bottom: 5px;
+      }
+
+      .login-form input {
+        width: 50%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .login-form button {
+        padding: 10px 20px;
+        background-color: #031540;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .login-form button:hover {
+        background-color: aqua;
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 768px) {
+        .student-profiles h1,
+        .login-form h1 {
+          font-size: 28px;
+        }
+
+        .profile-card {
+          max-width: 100%;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .student-profiles h1,
+        .login-form h1 {
+          font-size: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="#" class="logo">CTC</a>
+      <nav class="navbar">
+        <a href="./Home.html">Home</a>
+        <a href="./About.html">About Us</a>
+        <a href="./Courses.html">Courses</a>
+        <a href="#" class="active">Student Zone</a>
+        <a href="./Contact.html">Contact Us</a>
+      </nav>
+    </header>
+    <main>
+      <section class="student-profiles">
+        <h1>Our Students</h1>
+        <div class="profile-card">
+          <h2>Student Name 1</h2>
+          <p>Course: DCA</p>
+          <p>Year: 1st Year</p>
+        </div>
+        <div class="profile-card">
+          <h2>Student Name 2</h2>
+          <p>Course: Basic</p>
+          <p>Year: 1st Year</p>
+        </div>
+        <!-- Add more student profiles as needed -->
+      </section>
+      <section class="login-form">
+        <h1>Student Login</h1>
+        <form id="login-form">
+          <div class="form-row">
+            <label for="username">Username:</label>
+            <input id="username" type="text" name="username" required />
+          </div>
+          <div class="form-row">
+            <label for="password">Password:</label>
+            <input id="password" type="password" name="password" required />
+          </div>
+          <button type="submit">Login</button>
+        </form>
+      </section>
+    </main>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const loginForm = document.getElementById("login-form");
+
+        loginForm.addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent the default form submission
+
+          const formData = new FormData(loginForm);
+          const data = Object.fromEntries(formData.entries());
+
+          fetch("http://localhost:5000/login", {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.success) {
+                alert("Login successful!");
+                // Redirect to student profile page or dashboard
+              } else {
+                alert("Login failed. Please check your credentials.");
+              }
+            })
+            .catch((error) => {
+              alert("There was an error logging in. Please try again.");
+              console.error("Error:", error);
+            });
+        });
+      });
+    </script>
+    <footer>
+      <p>Made by Mir Md Minhaajuddin with the help of Microsoft Copilot</p>
+    </footer>
+  </body>
+</html>

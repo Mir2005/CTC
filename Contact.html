@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="Styles.css" />
+    <style>
+      .contact {
+        padding: 50px 20px;
+        text-align: center;
+        color: #031540;
+      }
+
+      .contact h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+
+      .contact form {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #f4f4f4;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .contact form input,
+      .contact form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .contact form button {
+        padding: 10px 20px;
+        background-color: #031540;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .contact form button:hover {
+        background-color: aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="#" class="logo">CTC</a>
+      <nav class="navbar">
+        <a href="./Home.html">Home</a>
+        <a href="./About.html">About Us</a>
+        <a href="./Courses.html">Courses</a>
+        <a href="./Student.html">Student Zone</a>
+        <a href="#" class="active">Contact Us</a>
+      </nav>
+    </header>
+    <main>
+      <section class="contact">
+        <h1>Contact Us</h1>
+        <form action="#" method="post">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea
+            name="message"
+            rows="5"
+            placeholder="Your Message"
+            required
+          ></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </section>
+    </main>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("contact-form");
+
+        form.addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent the default form submission
+
+          const formData = new FormData(form);
+
+          fetch("http://localhost:5000/sendmail", {
+            method: "POST",
+            body: JSON.stringify(Object.fromEntries(formData)),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              alert("Message sent successfully!");
+              form.reset(); // Reset the form after successful submission
+            })
+            .catch((error) => {
+              alert(
+                "There was an error sending your message. Please try again."
+              );
+              console.error("Error:", error);
+            });
+        });
+      });
+    </script>
+    <footer>
+      <p>Made by Mir Md Minhaajuddin with the help of Microsoft Copilot</p>
+    </footer>
+  </body>
+</html>
